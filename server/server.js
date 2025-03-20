@@ -1,21 +1,22 @@
 const express = require('express');
-const app = express();
-const quizData = require('./quizData');
 const path = require('path');
+const quizData = require('./quizData');
+const app = express();
 
-const PORT = process.env.PORT || 3000;
-
+// Serve static files from 'public'
 app.use(express.static(path.join(__dirname, '../public')));
 
+// API route
 app.get('/api/quiz/:language', (req, res) => {
-    console.log(`Request received for language: ${req.params.language}`);
-    const language = req.params.language.toLowerCase();
-    if (!quizData[language]) {
-        return res.status(404).json({ error: `Quiz data for ${language} not found` });
-    }
-    res.json(quizData[language]);
+    const { language } = req.params;
+    const questions = quizData[language] || [];
+    res.json(questions);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Serve index.html for all other routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server running on port ${port}`));

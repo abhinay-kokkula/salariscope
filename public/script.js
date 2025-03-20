@@ -41,13 +41,13 @@ let currentQuiz = [];
             selectedLanguage = language;
             const languageSelection = document.getElementById('language-selection');
             const quizContent = document.getElementById('quiz-content');
-
+        
             languageSelection.style.display = 'none';
             quizContent.style.display = 'block';
             document.getElementById('quiz-title').textContent = `${language.toUpperCase()} Quiz`;
-
+        
             try {
-                const response = await fetch(`http://localhost:3000/api/quiz/${language}`);
+                const response = await fetch(`/api/quiz/${language}`);
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
