@@ -99,7 +99,7 @@ function showQuestion() {
         div.textContent = option;
         div.onclick = () => {
             checkAnswer(index);
-            div.style.backgroundColor = '#56cd50';
+            div.style.backgroundColor = ' #ffcc5c';
             optionsEl.querySelectorAll('.option').forEach(opt => {
                 opt.style.pointerEvents = 'none';
             });
