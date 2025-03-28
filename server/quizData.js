@@ -346,7 +346,7 @@ module.exports = {
         { question: "What is the output: int x = 5; if(x > 2) { x++; } printf('%d', x);", options: ["5", "6", "2", "Error"], correctIndex: 1, coding: true },
         { question: "If an array has 4 elements, what is the index of the last element?", options: ["3", "4", "5", "0"], correctIndex: 0 }
     ],
-    javscript: [
+    javascript: [
         { question: "Which keyword declares a variable?", options: ["var", "int", "string", "def"], correctIndex: 0 },
         { question: "What is the output: let x = 3; console.log(x + 4);", options: ["3", "7", "34", "Error"], correctIndex: 1, coding: true },
         { question: "Which operator checks for equality without type coercion?", options: ["==", "===", "!=", "!-="], correctIndex: 1 },
